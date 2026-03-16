@@ -1,0 +1,114 @@
+name: Staging Only Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  staging-calendar-light:
+    name: "Staging - Calendar (Light)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/calendar/stg-blcktime.cy.js,cypress/e2e/staging/calendar/stg-invoices.cy.js,cypress/e2e/staging/calendar/stg-newAppt.cy.js
+
+  staging-calendar-heavy:
+    name: "Staging - Calendar (Heavy)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/calendar/stg-crtapt.cy.js,cypress/e2e/staging/calendar/stg-newchck.cy.js,cypress/e2e/staging/calendar/stg-apptchck.cy.js
+
+  staging-employees:
+    name: "Staging - Employees"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/employees/**/*.cy.js
+
+  staging-customers:
+    name: "Staging - Customers"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/customers/**/*.cy.js
+
+  staging-inventory:
+    name: "Staging - Inventory"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/inventory/**/*.cy.js
+
+  staging-offers:
+    name: "Staging - Offers"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/offers/**/*.cy.js
+
+  staging-subscriptions:
+    name: "Staging - Subscriptions"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/subscriptions/**/*.cy.js
+
+  staging-coupons:
+    name: "Staging - Coupons"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/coupons/**/*.cy.js
+
+  staging-giftcards:
+    name: "Staging - Gift Cards"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          spec: cypress/e2e/staging/giftcards/**/*.cy.js

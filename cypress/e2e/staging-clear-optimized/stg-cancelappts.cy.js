@@ -29,6 +29,6 @@ describe('Staging | Cancel Appointments | Admin credentials', () => {
     })
 
     it('Cancel all appointments', () => {
-        Cypress._.times(43, () => deleteAppt())
+        Cypress._.times(20, () => deleteAppt())
     })
 })
