@@ -74,7 +74,7 @@ Cypress.Commands.add('accessToCreateProduct', (environment = 'URL_Staging') => {
     cy.contains('Inventory', { matchCase: false }).should('exist').click({ force: true })
     cy.contains('Products', { matchCase: false }).should('exist').click({ force: true })
     cy.contains('h6', 'Products', { matchCase: false }).should('exist')
-    cy.contains('button', 'Add new', { matchCase: false }).should('exist').click({ force: true })
+    cy.contains('button', /^Add$/, { matchCase: false }).should('exist').click({ force: true })
     cy.contains('h3', 'Create product', { matchCase: false }).should('exist')
 })
 
@@ -119,7 +119,7 @@ Cypress.Commands.add('accessToCreateSuppliers', (environment = 'URL_Staging') =>
     cy.contains('Inventory').should('exist').click({ force: true })
     cy.contains('Suppliers').should('exist').click({ force: true })
     cy.contains('h6', 'Suppliers').should('exist')
-    cy.contains('button', 'Add New', { matchCase: false }).should('exist').click({ force: true })
+    cy.contains('button', /^Add$/, { matchCase: false }).should('exist').click({ force: true })
     cy.contains('h3', 'Add supplier').should('exist')
 })
 
@@ -290,7 +290,7 @@ Cypress.Commands.add('expectedMessageCompleteSale', (message) => {
 
 Cypress.Commands.add('newCheckout', (environ) => {
     // cy.visit(Cypress.expose(environ) + 'admin/calendar')
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.wait(800)
     cy.contains('li', 'New Checkout').should('be.visible').click({ force: true })
     cy.contains('button', 'Classic checkout').should('be.visible').click({ force: true })
@@ -298,7 +298,7 @@ Cypress.Commands.add('newCheckout', (environ) => {
 })
 
 Cypress.Commands.add('addItemService', (service) => {
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.get('div[role="tablist"]').find('button').eq(0).click({ force: true })
     cy.contains('label>span', 'search').parents('label').next('div').find('input').type(service)
     cy.contains('div', service).parents('li').find('button').click({ force: true })
@@ -306,7 +306,7 @@ Cypress.Commands.add('addItemService', (service) => {
 })
 
 Cypress.Commands.add('addItemOffer', (offer) => {
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.get('div[role="tablist"]').find('button').eq(1).click({ force: true })
     cy.contains('label>span', 'search').parents('label').next('div').find('input').type(offer)
     cy.contains('div', offer).parents('li').find('button').click({ force: true })
@@ -314,7 +314,7 @@ Cypress.Commands.add('addItemOffer', (offer) => {
 })
 
 Cypress.Commands.add('addItemProduct', (product) => {
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.get('div[role="tablist"]').find('button').eq(2).click({ force: true })
     cy.contains('label>span', 'search').parents('label').next('div').find('input').type(product)
     cy.contains('div', product).parents('li').find('button').click({ force: true })
@@ -329,7 +329,7 @@ Cypress.Commands.add('addEmployee', (employee) => {
 })
 
 Cypress.Commands.add('addItemGiftCard', (gift) => {
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.get('div[role="tablist"]').find('button').eq(4).click()
     cy.wait(80)
     cy.contains('div', gift).parents('li').find('button').click({ force: true })
@@ -337,7 +337,7 @@ Cypress.Commands.add('addItemGiftCard', (gift) => {
 })
 
 Cypress.Commands.add('addItemSubscription', (subs) => {
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.get('div[role="tablist"]').find('button').eq(3).click()
     cy.contains('label>span', 'search').parents('label').next('div').find('input').type(subs)
     cy.contains('div', subs).parents('li').find('button').click({ force: true })
@@ -565,7 +565,7 @@ Cypress.Commands.add('removeDiscount', (method) => {
 
 Cypress.Commands.add('newBlockTime', (environment) => {
     cy.visit(Cypress.expose(environment))
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.wait(8)
     cy.contains('li', 'New Block Time').should('be.visible').click({ force: true })
     cy.contains('div>h3', 'Create Blocked Time').should('be.visible').click({ force: true })
@@ -573,7 +573,7 @@ Cypress.Commands.add('newBlockTime', (environment) => {
 
 Cypress.Commands.add('newAppt', (environment) => {
     cy.visit(Cypress.expose(environment))
-    cy.contains('button', 'Add New').should('be.visible').click({ force: true })
+    cy.contains('button', /^Add$/).should('be.visible').click({ force: true })
     cy.wait(8)
     cy.contains('li', 'New Appointment').should('be.visible').click({ force: true })
 })
